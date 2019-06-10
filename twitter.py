@@ -30,10 +30,12 @@ def search(username):
         followerscol = tree.xpath("//div[@class='ProfileNav']/ul/li[3]/a/span[3]")
         like = tree.xpath("//div[@class='ProfileNav']/ul/li[4]/a/span[3]")
         print(img[0].xpath('./@src')[0])
-        for i in name:
-            print(i.text)
-        for b in info:
-            print(b.text)
+        name = name[0].text
+        info = info[0].text
+        reg = reg[0].text
+        readercol = readercol[0].text
+        followerscol = followerscol[0].text
+        like = like[0].text
         locat = ''
         for mesto in loc:
             if mesto.text is None:
@@ -48,8 +50,6 @@ def search(username):
             txt = a.text
             ste += txt.strip() + ' '
 
-        for d in reg:
-            print(d.text)
         dr = ''
         for n in birth:
             if n.text is None:
@@ -71,16 +71,9 @@ def search(username):
             txt = s.text
             ct += txt.strip() + ' '
 
-        for rc in readercol:
-            print(rc.text)
-        for fc in followerscol:
-            print(fc.text)
-        for l in like:
-            print(l.text)
-
-        total = {'photo': img[0].xpath('./@src')[0], 'name': i.text, 'info': b.text, 'location': locat, 'site': ste,
-                 'date_reg': d.text, 'date_birth': dr, 'gallery': gal, 'col-twits': ct, 'reader': rc.text,
-                 'followers': fc.text, 'likes': l.text, 'result': result}
+        total = {'photo': img[0].xpath('./@src')[0], 'name': name, 'info': info, 'location': locat, 'site': ste,
+                 'date_reg': reg, 'date_birth': dr, 'gallery': gal, 'col-twits': ct, 'reader': readercol,
+                 'followers': followerscol, 'likes': like, 'result': result}
         return collections.OrderedDict(total)
 
 
