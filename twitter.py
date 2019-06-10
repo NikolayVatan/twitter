@@ -29,7 +29,6 @@ def search(username):
         readercol = tree.xpath("//div[@class='ProfileNav']/ul/li[2]/a/span[3]")
         followerscol = tree.xpath("//div[@class='ProfileNav']/ul/li[3]/a/span[3]")
         like = tree.xpath("//div[@class='ProfileNav']/ul/li[4]/a/span[3]")
-        print(img[0].xpath('./@src')[0])
         name = name[0].text
         info = info[0].text
         reg = reg[0].text
