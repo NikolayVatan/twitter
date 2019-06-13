@@ -1,4 +1,7 @@
 import requests
+import pymongo
+from pymongo import MongoClient
+import pprint
 from lxml import html
 import collections
 
@@ -6,6 +9,10 @@ import collections
 def search(username):
     url = 'https://twitter.com/' + username
     r = requests.get(url)
+    client = MongoClient()
+    db = client.test_database
+    twitter = db.twitter
+    user = twitter.find_one({'username': username})
     if 'К сожалению, такой страницы нет!' in r.text:
         result = {
             'exists': False
@@ -72,7 +79,7 @@ def search(username):
 
         total = {'photo': img[0].xpath('./@src')[0], 'name': name, 'info': info, 'location': locat, 'site': ste,
                  'date_reg': reg, 'date_birth': dr, 'gallery': gal, 'col-twits': ct, 'reader': readercol,
-                 'followers': followerscol, 'likes': like, 'result': result}
+                 'followers': followerscol, 'likes': like, 'result': result, 'user': user}
         return collections.OrderedDict(total)
 
 
