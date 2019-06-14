@@ -25,7 +25,7 @@ def search(username):
         }
         tree = html.fromstring(r.text)
         name = tree.xpath("//div[@class='ProfileHeaderCard']/h1/a")
-        info = tree.xpath("//*[@id='page-container']/div[2]/div/div/div[1]/div/div/div/div[1]/p")
+        info = tree.xpath("//div[@class = 'ProfileHeaderCard']/p")
         loc = tree.xpath("//div[@class='ProfileHeaderCard-location ']/span[2]")
         site = tree.xpath("//div[@class='ProfileHeaderCard-url ']/span[2]/a")
         reg = tree.xpath("//div[@class='ProfileHeaderCard-joinDate']/span[2]")
