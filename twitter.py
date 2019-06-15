@@ -79,7 +79,7 @@ def search(username):
 
         total = {'photo': img[0].xpath('./@src')[0], 'name': name, 'info': info, 'location': locat, 'site': ste,
                  'date_reg': reg, 'date_birth': dr, 'gallery': gal, 'col-twits': ct, 'reader': readercol,
-                 'followers': followerscol, 'likes': like, 'result': result, 'user': user}
+                 'followers': followerscol, 'likes': like, 'result': result, 'username': '@'+username}
         return collections.OrderedDict(total)
 
 
