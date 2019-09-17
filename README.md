@@ -20,7 +20,7 @@
 https://github.com/NikolayVatan/twitter.git
 
 
-	$ pythn app.py install 
+	$ python app.py install 
 	
 Перед использованием подключите Mongodb.
 Введите команду в терминале:
